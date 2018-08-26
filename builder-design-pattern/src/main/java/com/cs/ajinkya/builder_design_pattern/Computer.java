@@ -51,18 +51,6 @@ public class Computer {
 			this.CPU = CPU;
 		}
 
-		public void setRAM(String rAM) {
-			RAM = rAM;
-		}
-
-		public void setHDD(String hDD) {
-			HDD = hDD;
-		}
-
-		public void setCPU(String cPU) {
-			CPU = cPU;
-		}
-
 		public Builder setWIFIEnabled(boolean isWIFIEnabled) {
 			this.isWIFIEnabled = isWIFIEnabled;
 			return this;
