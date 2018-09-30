@@ -23,7 +23,7 @@ public class App {
 		print("s1", s1);
 		print("s2", s2);
 
-		usingReflection();
+		//usingReflection();
 
 		usingSerialization(s2);
 

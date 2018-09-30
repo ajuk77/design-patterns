@@ -1,5 +1,6 @@
 package com.cs.ajinkya.singleton_pattern;
 
+import java.io.ObjectStreamException;
 import java.io.Serializable;
 
 public class Singleton implements Serializable, Cloneable{
@@ -7,6 +8,7 @@ public class Singleton implements Serializable, Cloneable{
 	private static Singleton soleInstance = null;
 	
 	private Singleton() {
+		//In case of reflection
 		if(null != soleInstance) {
 			throw new RuntimeException("Cannot create, please use getInstance()");
 		}
@@ -24,6 +26,12 @@ public class Singleton implements Serializable, Cloneable{
 	@Override
 	protected Object clone() throws CloneNotSupportedException {
 		return super.clone();
+	}
+	
+	//In case of serialization
+	private Object readResolve() throws ObjectStreamException {
+		System.out.println("Read resolved");
+		return soleInstance;
 	}
 
 }
