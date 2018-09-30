@@ -58,8 +58,7 @@ public class App {
 		print("s4", s4);
 	}
 
-	private static void usingReflection() throws ClassNotFoundException, NoSuchMethodException, InstantiationException,
-			IllegalAccessException, InvocationTargetException {
+	private static void usingReflection() throws Exception {
 		// Reflection
 		Class clazz = Class.forName("com.cs.ajinkya.singleton_pattern.Singleton");
 		Constructor<Singleton> ctor = clazz.getDeclaredConstructor(null);
