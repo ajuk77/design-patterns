@@ -4,13 +4,16 @@ import java.io.Serializable;
 
 public class Singleton implements Serializable, Cloneable{
 	
-	private static Singleton soleInstance = new Singleton();
+	private static Singleton soleInstance = null;
 	
 	private Singleton() {
 		System.out.println("Creating an instance");
 	}
 	
 	public static Singleton getInstance() {
+		if(null == soleInstance) {
+			soleInstance = new Singleton(); // lazy initialization
+		}
 		return soleInstance;
 	}
 	
