@@ -2,7 +2,7 @@ package com.cs.ajinkya.singleton_pattern;
 
 import java.io.Serializable;
 
-public class Singleton implements Serializable{
+public class Singleton implements Serializable, Cloneable{
 	
 	private static Singleton soleInstance = new Singleton();
 	
@@ -12,6 +12,11 @@ public class Singleton implements Serializable{
 	
 	public static Singleton getInstance() {
 		return soleInstance;
+	}
+	
+	@Override
+	protected Object clone() throws CloneNotSupportedException {
+		return super.clone();
 	}
 
 }

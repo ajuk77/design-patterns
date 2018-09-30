@@ -33,6 +33,11 @@ public class App
         ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("/tmp/s2.ser"));
         Singleton s4 = (Singleton) inputStream.readObject();
         print("s4", s4);
+        
+        //Using Clone
+        Singleton s5 = (Singleton) s2.clone();
+        print("s5", s5);
+        
     }
 
 	private static void print(String name, Singleton object) {
