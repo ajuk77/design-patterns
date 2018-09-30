@@ -1,5 +1,9 @@
 package com.cs.ajinkya.singleton_pattern;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.lang.reflect.Constructor;
 
 /**
@@ -22,6 +26,13 @@ public class App
         ctor.setAccessible(true);
         Singleton s3 = ctor.newInstance(null);
         print("s3", s3);
+        
+        //Serialization Example
+        ObjectOutputStream stream = new ObjectOutputStream(new FileOutputStream("/tmp/s2.ser"));
+        stream.writeObject(s2);
+        ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("/tmp/s2.ser"));
+        Singleton s4 = (Singleton) inputStream.readObject();
+        print("s4", s4);
     }
 
 	private static void print(String name, Singleton object) {
